@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.time.*;
 
 public class Mentoria extends Conteudo {
   private LocalDate data;
@@ -25,6 +25,6 @@ public class Mentoria extends Conteudo {
     return "Mentoria: {" + // <- ALTERACAO1 
       "Titulo: " + getTitulo() + ", " +
       "Descrição: " + getDescricao() + ", " +
-      "Data: " + getData() + "}";
+      "Data: " + getData() + "}\n";
   }
 }

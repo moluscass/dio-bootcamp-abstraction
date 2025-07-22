@@ -1,39 +1,49 @@
 import java.time.LocalDate;
+import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
-    Curso[] curso = new Curso[2];
-    for(int i = 0; i < curso.length; i++) { // <- Pra facilitar outras demonstracoes...
-      curso[i] = new Curso();
-    }
+    Curso c1 = new Curso();
+    Curso c2 = new Curso();
     
-    curso[0].setTitulo("Java");
-    curso[0].setDescricao("Abstração e encapsulamento");
-    curso[0].setCargaHoraria(8);
+    c1.setTitulo("Java");
+    c1.setDescricao("Abstração e encapsulamento");
+    c1.setCargaHoraria(8);
     
-    curso[1].setTitulo("Javascript");
-    curso[1].setDescricao("Curso de Javascript");
-    curso[1].setCargaHoraria(8);
+    c2.setTitulo("Javascript");
+    c2.setDescricao("Curso de Javascript");
+    c2.setCargaHoraria(8);
     
-    for(int i = 0; i < curso.length; i++) {
-      System.out.println(curso[i]);
-    }
+    Mentoria m1 = new Mentoria();
     
-    Mentoria[] mentoria = new Mentoria[2];
-    for(int i = 0; i < mentoria.length; i++) {
-      mentoria[i] = new Mentoria();
-    }
+    m1.setTitulo("Java");
+    m1.setDescricao("Mentoria Java");
+    m1.setData(LocalDate.now());
+
+    Bootcamp bc1 = new Bootcamp();
+    bc1.setName("Java Developer");
+    bc1.setDescricao("Bootcamp Desenvolvimento Java");
+    bc1.getConteudos().add(c1);
+    bc1.getConteudos().add(c2);
+    bc1.getConteudos().add(m1);
     
-    mentoria[0].setTitulo("Java");
-    mentoria[0].setDescricao("Mentoria Java");
-    mentoria[0].setData(LocalDate.now());
+    Dev marcio = new Dev();
+    marcio.setName("Marcio");
+    marcio.inscreverBootcamp(bc1);
+    System.out.println("Conteudos inscritos: " + marcio.getConteudosInscritos());
+    marcio.progredir();
+    marcio.progredir();
+    System.out.println("XP Marcio: " + marcio.calcularTotalXp());
+    marcio.calcularTotalXp();
+    System.out.println("Conteudos concluido de " + marcio.getName() + ": " + marcio.getConteudosConcluidos());
     
-    mentoria[1].setTitulo("Javascript");
-    mentoria[1].setDescricao("Mentoria Javascript");
-    mentoria[1].setData(LocalDate.now());
-    
-    for(int i = 0; i < mentoria.length; i++) {
-      System.out.println(mentoria[i]);
-    }
+    Dev marta = new Dev();
+    marta.setName("Marta");
+    marta.inscreverBootcamp(bc1);
+    System.out.println("Conteudos inscritos: " + marta.getConteudosInscritos());
+    marta.progredir();
+    marta.progredir();
+    System.out.println("XP Marta: " + marta.calcularTotalXp());
+    System.out.println("Conteudos concluido de " + marta.getName() + ": " + marta.getConteudosConcluidos());
   }
 }

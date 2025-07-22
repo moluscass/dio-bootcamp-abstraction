@@ -23,7 +23,7 @@ public class Curso extends Conteudo {
     return "Curso: {" + // <- ALTERACAO1 
       "Titulo: " + getTitulo() + ", " +
       "Descrição: " + getDescricao() + ", " +
-      "Carga horária: " + getCargaHoraria() + "}";
+      "Carga horária: " + getCargaHoraria() + "}\n";
   }
 }
 
